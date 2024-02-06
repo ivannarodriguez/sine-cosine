@@ -11,8 +11,8 @@
     .css({
       'width': `${size}px`,
       'position': 'absolute',
-      'left': `${x}px`,
-      'top':`${y}px`
+      'left': `${x - size / 2}px`,
+      'top':`${y - size / 2}px`
     })
     .addTo('body')
     }
@@ -23,13 +23,16 @@
     nn.get('body')
       .css({ 'background-color': bgColor})
     
-    for (let  j= 0; j < 5; j++) {
       for (let i = 0; i < 100; i++) {
-        const x = i * 2 * j
-        const y = i * 5
-        createCD(i, x, y)
+        const size = 100
+        const cx = nn.width / 2
+        const cy = nn.height / 2
+        
+        const x = i * size / 4
+        const y = cy + Math.random() * 100
+        createCD(size, x, y)
       }
-    }
+
   }
   
   // window.addEventListener()
