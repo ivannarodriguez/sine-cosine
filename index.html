@@ -24,12 +24,14 @@
       .css({ 'background-color': bgColor})
     
       for (let i = 0; i < 100; i++) {
-        const size = 100
+        const size = 50
+        const scale = 0.25 // oscilation - changing speed at which we move up and down
+        const radius = 200
         const cx = nn.width / 2
         const cy = nn.height / 2
         
-        const x = i * size / 4
-        const y = cy + Math.random() * 100
+        const x = cx + Math.cos(i * scale) * radius
+        const y = cy + Math.sin(i * scale) * radius
         createCD(size, x, y)
       }
 
