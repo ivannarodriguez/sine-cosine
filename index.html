@@ -1,23 +1,35 @@
 <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
 
 <script>
-  function createCD () {
+
+  function createCD (size, x, y) {
     nn.create('img')
     .set({
       src: 'cd.gif',
       lat: 'this is a cd'
     })
     .css({
-      'width': '100px',
+      'width': `${size}px`,
       'position': 'absolute',
-      'left': '100px',
-      'top':'200px'
+      'left': `${x}px`,
+      'top':`${y}px`
     })
     .addTo('body')
     }
   
   function setup() {
-    createCD()
+    // change background color
+    const bgColor = '#EEDAE8'
+    nn.get('body')
+      .css({ 'background-color': bgColor})
+    
+    for (let  j= 0; j < 5; j++) {
+      for (let i = 0; i < 100; i++) {
+        const x = i * 2 * j
+        const y = i * 5
+        createCD(i, x, y)
+      }
+    }
   }
   
   // window.addEventListener()
